@@ -1,0 +1,17 @@
+
+{% extends "base_mylog.html" %}
+{% block title %}{{ page_title }}{% endblock %}
+{% block content %}
+
+	<h1>Delete</h1>
+	<p>Delete '{{ page_title }}' page?</p>
+	<form method='POST' action='.'>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Delete" />
+	</form>
+	<p><a href="/">Cancel</a></p>
+
+{% endblock %}
+
+

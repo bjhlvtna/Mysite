@@ -1,0 +1,29 @@
+
+{% extends "base_mylog.html" %}
+{% block title %}{{ page_title }}{% endblock %}
+{% block content %}
+
+		{% if pages %}
+		<ul>
+			<table border="1">
+				<tr>
+					<th>Number</th>
+					<th>Title</th>
+					<th>Update Date</th>
+				</tr>
+				{% for page in pages %}
+				<tr>
+					<td align="center">{{ forloop.counter }}</td>
+					<td>{{page.title}}</td>
+					<td>{{page.update_date}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</ul>
+		{% else %}
+		Page Not found!<br />
+		{% endif %}
+
+{% endblock %}
+
+

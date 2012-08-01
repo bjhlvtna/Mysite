@@ -1,0 +1,19 @@
+
+{% extends "base_mylog.html" %}
+{% block title %}{{ header_title }}{% endblock %}
+{% block content %}
+
+	<h1>Edit Page | Templates dir ok!</h1>
+	{% if exist == 'no' %}
+		<form  action="/edit/" method="POST">
+	{% else %}
+		<form  action="/edit/{{ title }}/" method="POST">
+	{% endif %}
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit" />
+	</form>
+
+{% endblock %}
+
+
