@@ -1,10 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">		
 <html>
 	<head>
-		<title>{% block title %}{% endblock %}</title>
+		<title>loading's world...</title>
+		<link rel="stylesheet" type="text/css" href="/site_media/style.css" /> 
 	</head>
 	<body>
-		{% include "header_page.html" %}
-		{% block section %}{% endblock %}
-		{% include "footer_page.html" %}
+		{% include "header_page.html" %}	
+		{% include "navigator_page.html" %}	
+		<div id="content">
+			{% block content %}{% endblock %}
+		</div>
+		{% include "sidebar_page.html" %}	
+		{% include "footer_page.html" %}	
 	</body>
 </html>

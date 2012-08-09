@@ -1,5 +1,5 @@
 
-{% extends "base_mylog.html" %}
+{% extends "base.html" %}
 {% block title %}{{ page_title }}{% endblock %}
 {% block content %}
 
@@ -10,18 +10,22 @@
 					<th>Number</th>
 					<th>Title</th>
 					<th>Update Date</th>
+					<th>Delete</th>
+					<th>Edit</th>
 				</tr>
 				{% for page in pages %}
 				<tr>
 					<td align="center">{{ forloop.counter }}</td>
-					<td>{{page.title}}</td>
+					<td><a href="/view/{{ page.id }}/">{{ page.title }}</a></td>
 					<td>{{page.update_date}}</td>
+					<td><a href="/delete/{{ page.id }}/">Delete</a></td>
+					<td><a href="/edit/{{ page.id }}/">Edit</a></td>
 				</tr>
 				{% endfor %}
 			</table>
 		</ul>
 		{% else %}
-		Page Not found!<br />
+			Page Not found!<br />
 		{% endif %}
 
 {% endblock %}

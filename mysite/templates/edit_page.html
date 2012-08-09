@@ -1,5 +1,5 @@
 
-{% extends "base_mylog.html" %}
+{% extends "base.html" %}
 {% block title %}{{ header_title }}{% endblock %}
 {% block content %}
 
@@ -7,11 +7,11 @@
 	{% if exist == 'no' %}
 		<form  action="/edit/" method="POST">
 	{% else %}
-		<form  action="/edit/{{ title }}/" method="POST">
+		<form  action="/edit/{{ page.id }}/" method="POST">
 	{% endif %}
 	{% csrf_token %}
 	{{ form.as_p }}
-	<input type="submit" value="Submit" />
+	<input type="submit" value="Edit" />
 	</form>
 
 {% endblock %}

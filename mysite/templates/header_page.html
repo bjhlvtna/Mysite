@@ -1,3 +1,10 @@
 <div id="header_page">
-	<p> header_page...<p>
+	<div id="toplink">
+		{% if user.is_authenticated %}
+			<p>{{ user.username }}(<a href="/logout/">Logout</a>)</p>
+		{% else %}
+			<a href="login/">Wirter</a> | <a href="">Adminstrator Login</a>
+		{% endif %}
+	</div>
+	<h1><a href="/list/">Art of Digging Site</a></h1>
 </div>
