@@ -13,9 +13,13 @@
 	</ul>
 	<p id="recent_post_title"> Recent Post </p>
 	<ul id="side_bar_recent_post">
-		<li ><a href="">keyboard pairing</a></li>
-		<li ><a href="">django csrf problem</a></li>
-		<li ><a href="">Python project</a></li>
+		{% if recent_posts %}
+			{% for recent_post in recent_posts %}
+				<li ><a href="/view/{{ recent_post.id }}">{{ recent_post.title }}</a></li>
+			{% endfor %}
+		{% else %}
+			Page Not found!<br />
+		{% endif %}
 	</ul>
 	<p id="tag_title"> Tag </p>
 	<ul id="side_bar_tag">

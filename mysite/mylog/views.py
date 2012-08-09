@@ -1,6 +1,5 @@
 #*_ coding: UTF-8 _*_
 # Create your views here.
-
 import datetime
 from django.shortcuts import *
 from django.http import HttpResponse
@@ -11,6 +10,16 @@ from django.contrib.auth import logout
 
 from mylog.forms import *
 from mylog.models import Page
+
+
+def sidebar_page():
+	
+	recent_posts = Page.objects.order_by('update_date').reverse()[0:5]
+
+#	for post in recent_posts:
+#		print post.title
+
+	return recent_posts
 
 def main_page(request):
 
@@ -25,6 +34,7 @@ def main_page(request):
 #	'user':request.user,
 		'page_title':page.title,
 		'page_content':page.content,
+		'recent_posts': sidebar_page(),
 		'page_update_date':page.update_date,
 		},
 		context_instance=RequestContext(request)
@@ -138,3 +148,15 @@ def register_page(request):
 		},
 		context_instance=RequestContext(request)
 	)
+	
+
+
+
+
+
+
+
+
+
+
+
