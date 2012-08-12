@@ -32,7 +32,7 @@ TIME_ZONE = 'Asia/Seoul'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'UTF-8'
+LANGUAGE_CODE = 'ko-KR'
 
 SITE_ID = 1
 

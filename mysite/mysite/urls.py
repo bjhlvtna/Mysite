@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import os.path
 from django.conf.urls import patterns, include, url
 from django.views.generic.simple import direct_to_template
@@ -24,9 +25,10 @@ urlpatterns = patterns('',
 	url(r'^$',main_page),
 	url(r'^user/(\w+)/$',main_page),
 	url(r'^view/(\d+)/$',view_page),
-	url(r'^edit/(\d+)/$',edit_page),
+	url(r'^edit/([\w]*)[/]?$',edit_page),
 	url(r'^list/$',list_page),
 	url(r'^delete/(\d+)/$',delete_page),
+	url(r'^category/(\w+)/$',category_page),
 
 	url(r'^login/$','django.contrib.auth.views.login'),
 	url(r'^logout/$',logout_page),
