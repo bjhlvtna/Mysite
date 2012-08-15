@@ -1,47 +1,114 @@
-h1 ,ul,p,div{
-margin: 0px;
+/*   Reset --------------------------------------------------------- */
 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, 
+img, ins, kbd, q, s, samp, small, strike, strong, sub, tt, var, b, u, i, 
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, 
+tbody, tfoot, thead, tr, th, td 
+
+{ margin: 0; padding: 0; border: 0; outline: 0; 
+font-size: 100%; vertical-align: baseline; background: transparent; text-decoration: none;} 
+
+body { 
+line-height: 1; } 
+
+ol, ul { list-style: none; } 
+
+blockquote, q { quotes: none; } 
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: 
+none; } 
+
+:focus { outline: 0; }
+ins { text-decoration: none; } 
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* 
+   General 
+------------------------------------------------------------------- */
+
+html {
+	font-size: 62.5%; /* reset 1em to 10px */
+	height: 100%;
 }
 
-body{
-
-	background-color: #efe5d0;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: small;
-margin: 0px;
+body {
+	background: #FFFFFF;
+	color: #000000;
+	font: normal 1.3em Georgia,sans-serif;
+	height: 100%;
+	padding-bottom: 1px; /* force scrollbars */
 }
+
+/* 
+   Typography 
+------------------------------------------------------------------- */
+
+p {
+	line-height: 1.4em;
+	padding: 0.2em 0 1.2em;
+}
+
+h1 {font: normal 4em Georgia,sans-serif; margin: 0em 0em 0em 0.5em}
+h2 {font: normal 2.2em Georgia,sans-serif;}
+h3 {font: normal 2em Georgia,sans-serif;}
+h4 {font: normal 1.8em Georgia,sans-serif;}
+h5 {font: normal 1.6em Georgia,sans-serif;}
+h6 {font: bold 1.2em Georgia,sans-serif;}
+
+h1,h2,h3,h4,h5,h6 {margin-bottom: 0.2em;}
+
+blockquote {
+	background: #F6F6F2;
+	border-bottom: 1px solid #E0E0D4;
+	border-top: 1px solid #E0E0D4;
+	color: #332;
+	display: block;
+	margin: 0.6em 0 1.6em;
+	padding: 0.8em 1em 0.2em 46px;
+}
+
 
 #header_page {
-background: #958573;
-margin: 0px 0px 0px 0px;
-padding: 0px;
-margin: 0px 0px 0px 0px;
-height: 110px;
+	/*background: #958573;*/
+	color: #000000;
+	padding: 0px;
+	margin: 0em 0em 0em 0em;
+	height: 10em;
 }
 
 #toplink {
+	
+/*	background-color:#EAE8DD;*/
 	float: right;	
-	background-color:#EAE8DD;
-	padding: 0px 10px 0px 10px;
-	margin: 0px 50px 0px 0px;
+	padding: 0em 1em 0em 1em;
+	margin: 0em 5em 0em 0em;
+}
+#logo {
+	padding: 3em 0em 0em 0em;
+}
+#logo a {
+	color: #000000;
+	
+}
+#logo a:hover {
+	color: #0E447C;
 }
 
 #navigator {
-	background-color: #675c47;
+/*	background-color: #675c47;*/
 	float: left;
 	width: 100%;
-	margin: 0px;
-	padding: 1% 0 0 5%;
-	margin: 0;
-				 
+	margin: 0em 0em 0em 0em;
+	border-bottom: 0.1em solid #CCB;
+	padding: 1em 0em 0em 1em;				 
 	list-style: none;
 }
 #navigator li {
 	float: left;
 	font-family: "Lucida Grande", sans-serif;
-	margin: 0 2px 0 0;
+	margin: 0 0.2em 0 0;
 	font-size: 100%;
-	margin: 0;
 }
 
 #navigator a {
@@ -52,39 +119,45 @@ height: 110px;
 	color: #333;
 	text-decoration: none;
 	border-bottom: none;
-	background: #ccc;
+/*	background: #ccc;*/
 }
-#navigator a:hover, body#intro #t-intro a {
+#navigator a:hover {
 	color: #333;
-	background: #fff ;
+	background: #F1F1F1;
 }
 
 #content {
 	background-color: #efe5d0;
 	font-size: 105%;
-padding: 15px;
-margin: 0px 10px 10px 10px;
-float: left;
+	padding: 1em;
+	margin: 1em 1em 1em 1em;
+	float: left;
 }
 
 #sidebar_page {
-	background-color: #efe5d0;
-color: #665;
-	   font-size: 105%;
-padding: 15px;
-margin: 0px 10px 10px 10px;
-		border-left: 1px solid #CCB;
-width: 280px;
-float: right;
+/*	background-color: #efe5d0;*/
+	color: #000000;
+	font-size: 105%;
+	padding: 2em ;
+	margin: 1em 1em 1em 1em;
+	border-left: 0.1em solid #CCB;
+	width: 15em;
+	float: right;
+}
+#category_title, #recent_post_title, #tag_title {
+	padding: 0em 0em 0.5em 0em;
+}
+
+#sidebar_category, #sidebar_recent_post, #sidebar_tag {
+	padding: 0em 0em 1em 0.5em;
 }
 
 #footer_page {
-background: #958573;
-color: #efe5d0;
-	   text-align: center;
-padding: 15px;
-margin: 0px;
-		font-size: 90%;
-clear: right;
+	text-align: center;
+	padding: 15px;
+	margin: 0px;
+	font-size: 90%;
+	border-top: 0.1em solid #CCB;
+	clear: both;
 }
 

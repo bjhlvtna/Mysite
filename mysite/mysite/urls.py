@@ -2,6 +2,8 @@
 import os.path
 from django.conf.urls import patterns, include, url
 from django.views.generic.simple import direct_to_template
+from django.contrib import admin
+admin.autodiscover()
 
 from mylog.views import *
 # Uncomment the next two lines to enable the admin:
@@ -30,6 +32,7 @@ urlpatterns = patterns('',
 	url(r'^delete/(\d+)/$',delete_page),
 	url(r'^category/(\w+)/$',category_page),
 
+	url(r'^admin/',include(admin.site.urls)),
 	url(r'^login/$','django.contrib.auth.views.login'),
 	url(r'^logout/$',logout_page),
 	url(r'^register/$',register_page),

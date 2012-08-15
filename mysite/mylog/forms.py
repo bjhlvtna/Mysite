@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class EditWikiForm(forms.Form):
 	title = forms.CharField(label='Page Title')
+	private = forms.BooleanField(label='Private', required=False)
 	content = forms.CharField(label='Contents', widget=forms.Textarea)
 
 class DeleteWikiForm(forms.Form):

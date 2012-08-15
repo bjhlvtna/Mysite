@@ -1,7 +1,7 @@
 
 <div id="sidebar_page">
 	<p id="category_title"> Category </p>
-	<ul id="side_bar_category">
+	<ul id="sidebar_category">
 		{% if category_names %}
 			{% for title, id in category_names %}
 				<li ><a href="/category/{{ id }}">{{ title }}</a></li>
@@ -11,7 +11,7 @@
 		{% endif %}
 	</ul>
 	<p id="recent_post_title"> Recent Post </p>
-	<ul id="side_bar_recent_post">
+	<ul id="sidebar_recent_post">
 		{% if recent_posts %}
 			{% for recent_post in recent_posts %}
 				<li ><a href="/view/{{ recent_post.id }}">{{ recent_post.title }}</a></li>
@@ -21,7 +21,7 @@
 		{% endif %}
 	</ul>
 	<p id="tag_title"> Tag </p>
-	<ul id="side_bar_tag">
+	<ul id="sidebar_tag">
 		<li ><a href="">Ubuntu</a></li>
 		<li ><a href="">django</a></li>
 		<li ><a href="">Python</a></li>
