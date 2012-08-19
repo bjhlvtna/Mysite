@@ -2,8 +2,9 @@
 {% block title %}{{ header_title }}{% endblock %}
 {% block content %}
 
-	<p>Page Title : {{ page.title }}</P>
-	<p>Update Date : {{ page_update_date }}</p>
-	<p>{{ page.content }}</p>
+	<p id="content_title">{{ page.title }}</P>
+	<p id="content_date">Update Date : {{ page_update_date }}</p>
+	{% load markup %}
+	<p id="content_data">{{ page.content|markdown }}</p>
 
 {% endblock %}

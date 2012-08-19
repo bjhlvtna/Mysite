@@ -7,12 +7,14 @@
 		<link rel="stylesheet" type="text/css" href="/site_media/style.css" /> 
 	</head>
 	<body>
-		{% include "header_page.html" %}	
-		{% include "navigator_page.html" %}	
-		<div id="content">
-			{% block content %}{% endblock %}
+		<div id="wrap">
+			{% include "header_page.html" %}	
+			{% include "navigator_page.html" %}	
+			<div id="content">
+				{% block content %}{% endblock %}
+			</div>
+			{% include "sidebar_page.html" %}	
+			{% include "footer_page.html" %}	
 		</div>
-		{% include "sidebar_page.html" %}	
-		{% include "footer_page.html" %}	
 	</body>
 </html>

@@ -10,8 +10,10 @@
 		<form  action="/edit/{{ page.id }}/" method="POST">
 	{% endif %}
 	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Edit" />
+	<p>Title : {{ form.title }}   Private : {{ form.private }}</p>
+	<p>Content</p>
+	<p>{{ form.content }}</p>
+	<input type="submit" value="Save" />
 	</form>
 
 {% endblock %}

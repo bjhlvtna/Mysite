@@ -1,53 +1,33 @@
-/*   Reset --------------------------------------------------------- */
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, 
-img, ins, kbd, q, s, samp, small, strike, strong, sub, tt, var, b, u, i, 
-center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, 
-tbody, tfoot, thead, tr, th, td 
-
-{ margin: 0; padding: 0; border: 0; outline: 0; 
-font-size: 100%; vertical-align: baseline; background: transparent; text-decoration: none;} 
-
-body { 
-line-height: 1; } 
-
-ol, ul { list-style: none; } 
-
-blockquote, q { quotes: none; } 
-blockquote:before, blockquote:after, q:before, q:after { content: ''; content: 
-none; } 
-
-:focus { outline: 0; }
-ins { text-decoration: none; } 
-del { text-decoration: line-through; }
-table { border-collapse: collapse; border-spacing: 0; }
-
-/* 
-   General 
-------------------------------------------------------------------- */
-
 html {
 	font-size: 62.5%; /* reset 1em to 10px */
 	height: 100%;
 }
 
-body {
-	background: #FFFFFF;
-	color: #000000;
-	font: normal 1.3em Georgia,sans-serif;
-	height: 100%;
-	padding-bottom: 1px; /* force scrollbars */
-}
+#wrap {
+	width: 50em;
+	margin: 0 auto;
+	padding: 2em;
+/*	background: #dae3e9; */
 
-/* 
-   Typography 
-------------------------------------------------------------------- */
+	}
+
+body { 
+	margin: 2em;
+	padding: 0;
+	font-family: Georgia, serif;
+	font-size: small;
+	line-height: 1.5em;
+/*	background: #fff;*/
+
+ } 
+
 
 p {
 	line-height: 1.4em;
 	padding: 0.2em 0 1.2em;
 }
+
+a {	text-decoration: none; }
 
 h1 {font: normal 4em Georgia,sans-serif; margin: 0em 0em 0em 0.5em}
 h2 {font: normal 2.2em Georgia,sans-serif;}
@@ -58,33 +38,35 @@ h6 {font: bold 1.2em Georgia,sans-serif;}
 
 h1,h2,h3,h4,h5,h6 {margin-bottom: 0.2em;}
 
-blockquote {
-	background: #F6F6F2;
-	border-bottom: 1px solid #E0E0D4;
-	border-top: 1px solid #E0E0D4;
-	color: #332;
-	display: block;
-	margin: 0.6em 0 1.6em;
-	padding: 0.8em 1em 0.2em 46px;
-}
-
 
 #header_page {
 	/*background: #958573;*/
 	color: #000000;
-	padding: 0px;
 	margin: 0em 0em 0em 0em;
-	height: 10em;
+	padding: 2em;
+	text-align: center;
+
+ /*	height: 10em;*/
+
+}
+
+#header_page h1 {
+	margin: 0;
+	padding: 0;
+/*	font-size: 180%;*/
+	line-height: 1em;
+	font-weight: normal;
+/*	color: #333;*/
+
 }
 
 #toplink {
-	
-/*	background-color:#EAE8DD;*/
 	float: right;	
-	padding: 0em 1em 0em 1em;
-	margin: 0em 5em 0em 0em;
+	padding: 0em 1em 0em 0em;
+	margin: 0em 0em 0em 0em;
 }
 #logo {
+	clear: right;
 	padding: 3em 0em 0em 0em;
 }
 #logo a {
@@ -96,7 +78,6 @@ blockquote {
 }
 
 #navigator {
-/*	background-color: #675c47;*/
 	float: left;
 	width: 100%;
 	margin: 0em 0em 0em 0em;
@@ -116,7 +97,7 @@ blockquote {
 	display: block;
 	margin: 0;
 	padding: .5em 1em;
-	color: #333;
+	color: #000000;
 	text-decoration: none;
 	border-bottom: none;
 /*	background: #ccc;*/
@@ -127,21 +108,44 @@ blockquote {
 }
 
 #content {
-	background-color: #efe5d0;
-	font-size: 105%;
-	padding: 1em;
-	margin: 1em 1em 1em 1em;
+/*	font-size: 105%;
+	width: 70%;
+	padding: 1em;*/
+	width: 30em;
+	padding: 2em 0;
+	margin: 1em 1em 1em 2em;
+	font-size: 1em;
 	float: left;
 }
 
+#content_title {
+	font-size: 2em;
+	margin: 0em 0em 0em 0em;
+	padding: 0em 0em 0em 0em;
+	
+}
+
+#content_date {
+	font-size: 70%;
+	margin: 0em 0em 0em 0em;
+	padding: 0em 0em 0em 0em;
+	border-bottom: 0.1em solid #CCB;
+}
+
 #sidebar_page {
-/*	background-color: #efe5d0;*/
 	color: #000000;
-	font-size: 105%;
+	width: 15em;
+	padding: 2em 0em 2em 3em;
+	font-size: 90%;
+	line-height: 1.5em;
+	border-left: 0.1em solid #CCB;
+/*
+
 	padding: 2em ;
 	margin: 1em 1em 1em 1em;
 	border-left: 0.1em solid #CCB;
-	width: 15em;
+	width: 30%;
+*/
 	float: right;
 }
 #category_title, #recent_post_title, #tag_title {
@@ -155,7 +159,7 @@ blockquote {
 #footer_page {
 	text-align: center;
 	padding: 15px;
-	margin: 0px;
+	padding: 1em 2em;
 	font-size: 90%;
 	border-top: 0.1em solid #CCB;
 	clear: both;

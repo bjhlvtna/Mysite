@@ -17,8 +17,13 @@ from mylog.models import Page
 category 먼가 구조가.. 맘에 안든다....
 '''
 
+'''
+	[카테고리 테그] 가 없는 경우 처리 
+
+'''
 def make_sidebar_category(user_email):
-	category = re.compile('^((\[[ㄱ-ㅣ가-힣\w]+\])+)')
+
+	category = re.compile('^((\[[ㄱ-ㅣ가-힣\w\s]+\])+)')
 	if user_email=='':
 		pages = Page.objects.filter(private=False)
 	else:
@@ -40,25 +45,27 @@ def make_sidebar_category(user_email):
 	return category_items
 
 def make_sidebar_recent_post():
-	
+#	비밀글이 아니고 가장 최근에 업데이트된 글 중 5개를 선택함	
 	recent_posts = Page.objects.filter(private=False).order_by('update_date').reverse()[0:5]
 	return recent_posts
 
 def category_page(request, category_id):
 
 	category_items = []
-	category = re.compile('^((\[[ㄱ-ㅣ가-힣\w]+\])+)')
+	category = re.compile('^((\[[ㄱ-ㅣ가-힣\w\s]+\])+)')
 	page = Page.objects.get(id=category_id)
 	title = page.title.encode('utf-8')
 	tmp = category.match(title)
 	category_name = tmp.group()
 
+#	글쓴이와 일반사용자 구분하여 출력 
 	if request.user.username=='':
 		user_email = ''
 		pages = Page.objects.filter(private=False)
 	else:
 		user_email = request.user.email
 		pages = Page.objects.filter(Q(author=request.user.email) | Q(private=False))
+
 	for page in pages:
 		encoded_title = page.title.encode('utf-8')
 		if encoded_title.find(category_name)!=(-1):
@@ -88,11 +95,11 @@ def main_page(request):
 		page = Page(title='not exist', content='not exist')
 	else:
 		page = pages[0]
+		page.update_date = page.update_date.strftime('%m/%d/%Y')
 
 	return render_to_response(
 		'main_page.html',{
 		'page': page,
-		'page_update_date': page.update_date.strftime('%m/%d/%Y'),
 		'user':request.user,
 		'recent_posts':  make_sidebar_recent_post(),
 		'category_names': make_sidebar_category(user_email),
@@ -115,8 +122,15 @@ def edit_page(request, page_id):
 			page = Page.objects.get(id=page_id)
 			post_data = EditWikiForm(request.POST)
 			if post_data.is_valid():
+				page.title = post_data.cleaned_data['title']
 				page.content = post_data.cleaned_data['content']
 				page.private = post_data.cleaned_data['private']
+
+#		title tag check , 없으면 [Non Category] 붙이기 
+		category = re.compile('^((\[[ㄱ-ㅣ가-힣\w\s]+\])+)')
+		tmp = category.match(page.title)
+		if tmp==None:
+			page.title = '[Non Category]'+page.title
 
 		page.update_date = datetime.datetime.now()
 		page.save();
