@@ -3,8 +3,11 @@
 {% block content %}
 
 	<p id="content_title">{{ page.title }}</P>
-	<p id="content_date">Update Date : {{ page_update_date }}</p>
+	<p id="content_date">Update Date : {{ page.update_date|date:"SHORT_DATETIME_FORMAT" }}</p>
 	{% load markup %}
 	<p id="content_data">{{ page.content|markdown }}</p>
+
+	{% include 'comment_page.html'%}
+	{% include 'comment_form_page.html'%}
 
 {% endblock %}

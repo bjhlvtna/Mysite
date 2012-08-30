@@ -4,6 +4,14 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
+from mylog.models import *
+
+
+class CommentForm(forms.Form):
+	author = forms.CharField(label='Author', widget=forms.TextInput(attrs={'size':'10'}))
+	passwd = forms.CharField(label='Password', widget=forms.TextInput(attrs={'size':'10'}))
+	body = forms.CharField(label='Body', widget=forms.Textarea(attrs={'cols':40, 'rows':2}))
+
 class EditWikiForm(forms.Form):
 	title = forms.CharField(label='Page Title')
 	private = forms.BooleanField(label='Private', required=False)

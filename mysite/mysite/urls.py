@@ -13,6 +13,9 @@ from mylog.views import *
 site_media = os.path.join(
 	os.path.dirname(__file__),'../site_media'		
 )
+media = os.path.join(
+	os.path.dirname(__file__),'../media'		
+)
 
 urlpatterns = patterns('',
     # Examples:
@@ -38,6 +41,12 @@ urlpatterns = patterns('',
 	url(r'^register/$',register_page),
 	url(r'^register/success/$', direct_to_template, {'template': 'registration/register_success.html'}),
 
+#	comment
+	url(r'^comment/(\d+)/$',comment_form_page),
+	# 
 	url(r'^site_media/(?P<path>.*)/$','django.views.static.serve',
 		{ 'document_root': site_media }),
+	url(r'^media/(?P<path>.*)/$','django.views.static.serve',
+		{ 'document_root': media }),
 )
+

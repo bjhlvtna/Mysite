@@ -17,10 +17,35 @@ from mylog.models import Page
 category 먼가 구조가.. 맘에 안든다....
 '''
 
-'''
-	[카테고리 테그] 가 없는 경우 처리 
+def comment_form_page(request, page_id):
+	
+	author = request.POST.get('author','')
+	if not author.strip():
+		return HttpResponse('글쓴이 입력 해주세요')
+	passwd = request.POST.get('passwd','')
+	if not passwd.strip():
+		return HttpResponse('비밀번호를 입력 해주세요')
+	body = request.POST.get('body','')
+	if not body.strip():
+		return HttpResponse('내용을 입력 해주세요')
 
-'''
+	try:
+		page = Page.objects.get(id=page_id)
+		print page
+		page.comments += 1
+		page.save()
+	except:
+		return HttpResponse('저장할 글이 존재 하지 않습니다.')
+
+	# 댓글 갯체 생성
+	try:
+		comment = Comment(author=author, passwd=passwd, body=body, page=page)
+		comment.save()
+		print comment
+		return HttpResponse('댓글 성공')
+	except:
+		return HttpResponse('댓글 실패')
+
 def make_sidebar_category(user_email):
 
 	category = re.compile('^((\[[ㄱ-ㅣ가-힣\w\s]+\])+)')
@@ -181,21 +206,28 @@ def view_page(request, id):
 					'user':request.user,
 					'recent_posts':  make_sidebar_recent_post(),
 					'category_names': make_sidebar_category(''),
-				})
+				},context_instance=RequestContext(request)
+			
+			)
 	else:
 		if request.user.username=='':
 			user_email = ''
 		else:
 			user_email = request.user.email
 
+		comments = Comment.objects.filter(page=page).order_by('created_date')
+
 		return render_to_response('view_page.html',{
 					'header_title':'view_page',
 					'page':page,
-					'page_update_date': page.update_date.strftime('%m/%d/%Y'),
 					'user':request.user,
 					'recent_posts':  make_sidebar_recent_post(),
 					'category_names': make_sidebar_category(user_email),
-				})
+					'comments': comments,
+					'comment_form':CommentForm(),
+				},context_instance=RequestContext(request)
+				
+			)
 
 def list_page(request):
 	try:

@@ -3,19 +3,19 @@
 {% block title %}{{ header_title }}{% endblock %}
 {% block content %}
 
-	<h3>Edit Page</h3>
-	{% if exist == 'no' %}
-		<form  action="/edit/" method="POST">
-	{% else %}
-		<form  action="/edit/{{ page.id }}/" method="POST">
-	{% endif %}
-	{% csrf_token %}
-	<p>Title : {{ form.title }}   Private : {{ form.private }}</p>
-	<p>Content</p>
-	<p>{{ form.content }}</p>
-	<input type="submit" value="Save" />
-	</form>
-
+	<div id='edit'>
+		<h3 id='edit_header'>Edit Page</h3>
+		{% if exist == 'no' %}
+			<form  action="/edit/" method="POST">
+		{% else %}
+			<form  action="/edit/{{ page.id }}/" method="POST">
+		{% endif %}
+		{% csrf_token %}
+		<p>Title : {{ form.title }}   Private : {{ form.private }}</p>
+		<p>{{ form.content }}</p>
+		<div id='submit'><input type="submit" value="Save" /></div>
+		</form>
+	</div>
 {% endblock %}
 
 
