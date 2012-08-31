@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ page_title }}{% endblock %}
+{% block content %}
+
+	<ul id="selected_category_list">
+		{% if category_items %}
+			{% for title, id in category_items %}
+				<li><a id="category_item" href="/view/{{ id }}/">{{ title }}</a></li>
+			{% endfor %}
+		{% else %}
+			Page Not found!<br />
+		{% endif %}
+	</ul>
+
+{% endblock %}
+
+

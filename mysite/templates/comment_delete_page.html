@@ -1,0 +1,12 @@
+
+
+<div id='comment_del_form'>
+	<form method='POST' action='/comment_del/{{ comment.id }}/'>
+	{% csrf_token %}
+		<div id='del_comment'>Delete Comment : </div>
+		<p>Password를 입력해주세요. </p>
+		<p>Author : {{ comment_form.author }}  Password : {{ comment_form.passwd }}</p>
+		<p>{{ comment_form.body }}</p>
+		<div id='submit'><input type='submit' value='Submit' /></div>
+	</form>
+</div>

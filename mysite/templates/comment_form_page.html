@@ -1,0 +1,10 @@
+
+<div id='comment_form'>
+	<form method='POST' action='/comment/{{ page.id }}/'>
+	{% csrf_token %}
+		<div id='add_comment'>Add Comment : </div>
+		<p>Author : {{ comment_form.author }}  Password : {{ comment_form.passwd }}</p>
+		<p>{{ comment_form.body }}</p>
+		<div id='submit'><input type='submit' value='Submit' /></div>
+	</form>
+</div>

@@ -1,0 +1,15 @@
+
+	{% if comments %}
+	<p id='comment_title'>Comment :</p>
+	{% endif %}
+	{% if comments|length %}
+		{% for comment in comments %}
+			<!-- TODO: a element의 위치가 과연 올바른가....-->
+			<div class='comment'>
+			<a id='comment_del' href='/comment_del/{{ comment.id }}/'>Delete</a>
+			<div class='comment_author'>{{ comment.author }} | {{ comment.created_date|date:"SHORT_DATE_FORMAT" }}</div>
+			<div class='comment_body'>{{ comment.body }}</div>
+			</div>
+		{% endfor %}
+	{% else %}
+	{% endif %}
