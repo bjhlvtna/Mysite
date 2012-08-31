@@ -175,6 +175,13 @@ h1,h2,h3,h4,h5,h6 {margin-bottom: 0.2em;}
 	padding: 4px; 
 	margin-bottom: 12px; 
 }
+
+.comment a{
+	float: right;
+	color: #000000;
+	font-size: 0.8em; 
+}
+
 .comment_author { 
 	font-size: 0.8em; 
 	margin-top: 2px; 

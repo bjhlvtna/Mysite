@@ -43,6 +43,7 @@ urlpatterns = patterns('',
 
 #	comment
 	url(r'^comment/(\d+)/$',comment_form_page),
+	url(r'^comment_del/(\d+)/$',comment_delete_page),
 	# 
 	url(r'^site_media/(?P<path>.*)/$','django.views.static.serve',
 		{ 'document_root': site_media }),

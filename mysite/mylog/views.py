@@ -13,10 +13,31 @@ from django.db.models import Q
 
 from mylog.forms import *
 from mylog.models import Page
-'''
-category 먼가 구조가.. 맘에 안든다....
-'''
 
+def comment_delete_page(request, cmt_id):
+
+	if request.method=='POST':
+		try:
+			del_comment = Comment.objects.get(id=cmt_id,passwd=request.POST['passwd'])
+			del_comment.delete()
+			return HttpResponse('댓글이 삭제 되었습니다.')
+		except:
+			return HttpResponse('정보가 잘못되어 삭제 안되었습니다.')
+	else:
+		del_comment= Comment.objects.get(id=cmt_id)
+		return render_to_response(
+			'comment_delete_page.html',{
+			'comment_form':DeleteCommentForm({
+							'author':del_comment.author,
+							'body':del_comment.body}),
+			'comment': del_comment,
+#			'category_items': category_items,
+#			'recent_posts':  make_sidebar_recent_post(),
+#'category_names': make_sidebar_category(user_email),
+			},
+			context_instance=RequestContext(request)
+		)
+		
 def comment_form_page(request, page_id):
 	
 	author = request.POST.get('author','')
@@ -176,7 +197,6 @@ def edit_page(request, page_id):
 			return render_to_response(
 				'edit_page.html',{
 				'page': page,
-				'page_update_date': page.update_date.strftime('%m/%d/%Y'),
 				'header_title':'Edit Page',
 				'exist':'yes',
 				'recent_posts':  make_sidebar_recent_post(),

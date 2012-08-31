@@ -7,6 +7,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from mylog.models import *
 
 
+class DeleteCommentForm(forms.Form):
+	author = forms.CharField(label='Author', widget=forms.TextInput(attrs={'size':'10'}))
+	passwd = forms.CharField(label='Password', widget=forms.TextInput(attrs={'size':'10'}))
+	body = forms.CharField(label='Body', widget=forms.Textarea(attrs={'cols':40, 'rows':2}))
+
 class CommentForm(forms.Form):
 	author = forms.CharField(label='Author', widget=forms.TextInput(attrs={'size':'10'}))
 	passwd = forms.CharField(label='Password', widget=forms.TextInput(attrs={'size':'10'}))
