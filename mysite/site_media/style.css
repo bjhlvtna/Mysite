@@ -117,7 +117,10 @@ h1,h2,h3,h4,h5,h6 {margin-bottom: 0.2em;}
 	font-size: 1em;
 	float: left;
 }
-
+#content_edit {
+	font-size: 0.8em; 
+	float: right; 
+}
 #content_title {
 	font-size: 2em;
 	margin: 0em 0em 0em 0em;
@@ -126,7 +129,7 @@ h1,h2,h3,h4,h5,h6 {margin-bottom: 0.2em;}
 }
 
 #content_date {
-	font-size: 70%;
+	font-size: 0.8em; 
 	margin: 0em 0em 0em 0em;
 	padding: 0em 0em 0em 0em;
 	border-bottom: 0.1em solid #CCB;

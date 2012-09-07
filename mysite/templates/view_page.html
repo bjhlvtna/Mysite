@@ -2,8 +2,13 @@
 {% block title %}{{ header_title }}{% endblock %}
 {% block content %}
 
-	<p id="content_title">{{ page.title }}</P>
-	<p id="content_date">Update Date : {{ page.update_date|date:"SHORT_DATETIME_FORMAT" }}</p>
+	<div id='content_header'>
+		<p id="content_title">{{ page.title }}</P>
+		{% if page.author == author %}
+			<a id='content_edit' href='/edit/{{ page.id }}/'>Edit</a>
+		{% endif %}
+		<p id="content_date">Update Date : {{ page.update_date|date:"SHORT_DATETIME_FORMAT" }}</p>
+	</div>
 	{% load markup %}
 	<p id="content_data">{{ page.content|markdown }}</p>
 

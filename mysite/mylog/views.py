@@ -237,10 +237,12 @@ def view_page(request, id):
 
 		comments = Comment.objects.filter(page=page).order_by('created_date')
 
+
 		return render_to_response('view_page.html',{
 					'header_title':'view_page',
 					'page':page,
 					'user':request.user,
+					'author': user_email,
 					'recent_posts':  make_sidebar_recent_post(),
 					'category_names': make_sidebar_category(user_email),
 					'comments': comments,
